@@ -142,10 +142,16 @@
       <div>
 
         <div class="row">
+
+          <div class="six columns ml-1">
+            <h1 class="mt-2">
+              Welcome.
+            </h1>
+          </div>
   <div class="two columns" style="max-width: 50px">
     <h1 class="mt-2 mode">
-      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
-      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
+      <div onclick=setDarkMode(true) id="darkBtn">🌑暗</div>
+      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️明</div>
       <script >
         if (localStorage.getItem('preferredTheme') == 'dark') {
           setDarkMode(true)
@@ -168,28 +174,24 @@
     </h1>
   </div>
 
-  <div class="six columns ml-1">
-    <h1 class="mt-2">
-      欢迎.
-    </h1>
-  </div>
+  
 
   <div class="twelve columns">
     <div class="row">
       <div class="nine columns left">
-        <a href="/">Home</a>
+        <a href="/">首页</a>
         
           
           <a href="/Works" class="ml">Works</a>
           
         
           
-          <a href="/About" class="ml">About</a>
+          <a href="/About" class="ml">关于</a>
           
         
         
           
-            <a href="mailto:test@test.test" target="_blank" class="ml">Email</a>
+            <a href="danger.zeng@qq.com" target="_blank" class="ml">邮箱</a>
           
         
       </div>
@@ -202,13 +204,13 @@
           <div class="row">
   <div class="column">
     <!-- Main information, edit it on theme/_config.yml -->
-    <h2 class="mb-2">I am Adi Sakti Jrs</h2>
+    <h2 class="mb-2">I am 曾自喜</h2>
     <p>A student and web developer from Indonesia 🇮🇩</p>
     <p>This is Minima, an undoubtedly simple and lightweight dark/light mode theme for Hexo. I created this from scratch using Skeleton CSS boilerplate. It only uses CSS and Vanilla JS, without using unnecessary third-party &#39;render-blocking&#39; libraries! 😁</p>
   </div>
 </div>
 
-<h3>Recent Posts</h3>
+<h3>最近 帖子</h3>
 
 
 <div class="row">
@@ -226,11 +228,11 @@
 </div>
 
 
-<h4> <a href="/archives">All Posts</a></h4>
+<h4> <a href="/archives">全部 帖子</a></h4>
 
         </div>
         <div class="row mt-2">
-  <h3>Search</h3>
+  <h3>搜索</h3>
   <div><input id="search-text" title="search" class="search-text" type="text" placeholder="search......"></div>
   <div style="margin-top: 1.5rem;">
     <ul id="result"></ul>
