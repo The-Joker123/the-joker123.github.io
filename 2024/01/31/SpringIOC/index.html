@@ -11,11 +11,11 @@
   <meta charset="utf-8">
 
   
-  <title>Hello World</title>
+  <title>SpringIOC</title>
   
-  <link rel="canonical" href="http://example.com/2024/01/03/hello-world/">
+  <link rel="canonical" href="http://example.com/2024/01/31/SpringIOC/">
   
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+  <meta name="description" content="Spring IOC一、谈谈你对Sping IOC的了解1.控制反转是一种思想，不是一个具体实现。 2.IOC的思想就是将原本在程序中创建的控制权，交由Spring框架来管理。 二、为什么叫控制反转？1.控制：指的是对象创建（实例化、管理）的权力 2.反转：控制权交给外部环境管理（Spring框架，">
   
   
   <meta name="author" content="John Doe">
@@ -24,21 +24,21 @@
   
   <meta property="og:site_name" content="Hexo" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Hello World" />
+  <meta property="og:title" content="SpringIOC" />
   
-  <meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+  <meta property="og:description" content="Spring IOC一、谈谈你对Sping IOC的了解1.控制反转是一种思想，不是一个具体实现。 2.IOC的思想就是将原本在程序中创建的控制权，交由Spring框架来管理。 二、为什么叫控制反转？1.控制：指的是对象创建（实例化、管理）的权力 2.反转：控制权交给外部环境管理（Spring框架，">
   
-  <meta property="og:url" content="http://example.com/2024/01/03/hello-world/" />
+  <meta property="og:url" content="http://example.com/2024/01/31/SpringIOC/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Hello World">
+  <meta name="twitter:title" content="SpringIOC">
   
-  <meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
-  
-  
+  <meta name="twitter:description" content="Spring IOC一、谈谈你对Sping IOC的了解1.控制反转是一种思想，不是一个具体实现。 2.IOC的思想就是将原本在程序中创建的控制权，交由Spring框架来管理。 二、为什么叫控制反转？1.控制：指的是对象创建（实例化、管理）的权力 2.反转：控制权交给外部环境管理（Spring框架，">
   
   
-  <meta name="twitter:url" content="http://example.com/2024/01/03/hello-world/" />
+  
+  
+  <meta name="twitter:url" content="http://example.com/2024/01/31/SpringIOC/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -195,23 +195,57 @@
 </div>
 
         <div class="trans">
-            <h2>Hello World</h2>
+            <h2>SpringIOC</h2>
 
-  <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="highlight bash">$ hexo new <span class="string">&quot;My New Post&quot;</span></code></pre>
+  <h1 id="Spring-IOC"><a href="#Spring-IOC" class="headerlink" title="Spring IOC"></a>Spring IOC</h1><h2 id="一、谈谈你对Sping-IOC的了解"><a href="#一、谈谈你对Sping-IOC的了解" class="headerlink" title="一、谈谈你对Sping IOC的了解"></a>一、谈谈你对Sping IOC的了解</h2><p>1.控制反转是一种思想，不是一个具体实现。</p>
+<p>2.IOC的思想就是将原本在程序中创建的控制权，交由Spring框架来管理。</p>
+<h2 id="二、为什么叫控制反转？"><a href="#二、为什么叫控制反转？" class="headerlink" title="二、为什么叫控制反转？"></a>二、为什么叫控制反转？</h2><p><strong>1</strong>.<strong>控制</strong>：指的是对象创建（实例化、管理）的权力</p>
+<p><strong>2</strong>.<strong>反转：</strong>控制权交给外部环境管理（Spring框架，IOC容器）</p>
+<p>3.控制反转的重要软件设计思想就是，依赖倒置原则。</p>
+<p>4.什么是依赖倒置原则，假设我们设计一辆汽车，先设计轮子→底盘→车架，最后根据车身设计好整个汽车。这里就出现了一个“依赖”关系：汽车依赖车身，车身依赖底盘，底盘依赖轮子。</p>
+<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled.png" alt="Untitled"></p>
+<p>这样设计，可维护性很低。假设我们要把轮子尺寸增大，底盘设计就需要改，车身也需要改，同理汽车设计都需要改。</p>
+<p>5.现在我们换一种思路，我们先设计汽车的大概样子，轮子依赖底盘， 底盘依赖车身， 车身依赖汽车。</p>
+<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled1.png" alt="Untitled"></p>
+<p>6.这就是依赖导致原则，把原本的高层建筑物“倒置”过来。高层并不用管底层是怎么实现的。这样就不会出现前面的“牵一发动全身”的情况。</p>
+<p>7.控制反转就是，依赖倒置原则的一种代码设计思路，具体采用的方法就是所谓的依赖注入</p>
+<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%202.png" alt="Untitled"></p>
+<p>7.为了理解这几个概念，我们还是用上面汽车的例子。只不过这次换成代码。我们先定义四个Class，车，车身，底盘，轮胎。然后初始化这辆车，最后跑这辆车。代码结构如下：</p>
+<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%203.png" alt="Untitled"></p>
+<aside>
+💡 从上面代码可以看出，Car→Framework→Bottom→Tire
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="highlight bash">$ hexo server</code></pre>
+</aside>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="highlight bash">$ hexo generate</code></pre>
+<p>8.把轮胎尺寸改成动态的</p>
+<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%204.png" alt="Untitled"></p>
+<p>为了让整个程序正常运行，我们需要做以下改动</p>
+<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%205.png" alt="Untitled"></p>
+<aside>
+💡 由此我们可以看出，我们仅仅修改轮胎的尺寸，修改了整个上面画红色圈的的方法。软件工程中，**这样的设计几乎是不可维护。如果有几千个类的底层，如果每次修改这个类，我们都要修改所依赖的类，维护成本太高。**
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="highlight bash">$ hexo deploy</code></pre>
+</aside>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>9.维护成本这么高，所以我们需要进行控制反转，及上层控制下层，而不是下层控制上层。</p>
+<p><strong>所谓依赖注入就是，就是把底层作为参数传入上层类，实现上层控制下层。</strong></p>
+<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%206.png" alt="Untitled"></p>
+<p>什么是<strong>控制反转容器(IoC Container)<strong>呢？其实上面的例子中，对车类进行</strong>初始化</strong>的那段代码发生的地方，就是控制反转容器。</p>
+<p><img src="https://picx.zhimg.com/80/v2-c845802f9187953ed576e0555f76da42_720w.webp?source=1940ef5c" alt="https://picx.zhimg.com/80/v2-c845802f9187953ed576e0555f76da42_720w.webp?source=1940ef5c"></p>
+<aside>
+💡 因为采用了依赖注入，所以初始化时会写大量的new。这里就采用了IOC容器，来生成大量的初始化代码。我们只需要维护一个**Configuration。不用写大量的依赖注入的初始化代码。**
 
-  <p> — Jan 3, 2024</p>
+</aside>
+
+<p>10.IOC创建时我们不需要了解创建的细节是什么。下面这是我们自己手动创建的依赖注入的初始化代码。</p>
+<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%207.png" alt="Untitled"></p>
+<p>这个过程中，我们需要了解整个Car&#x2F;Framework&#x2F;Bottom&#x2F;Tire类构造函数是怎么定义的，才能一步一步new&#x2F;注入。</p>
+<p>而IOC是反过来的，先从最上层开始向下找依赖关系，到达底层之后再往上一步一步new.</p>
+<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%208.png" alt="Untitled"></p>
+<p>这里IoC Container可以直接隐藏具体的创建实例的细节，在我们来看它就像一个工厂：</p>
+<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%209.png" alt="Untitled"></p>
+<p>这就像工厂的客户，我们只需要了解工厂请求一个Car实例，按照配置自动生成。</p>
+
+  <p> — Jan 31, 2024</p>
   
 
 
