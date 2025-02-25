@@ -175,17 +175,9 @@
       <div class="nine columns left">
         <a href="/">Home</a>
         
-          
-          <a href="/Works" class="ml">Works</a>
-          
         
           
-          <a href="/About" class="ml">About</a>
-          
-        
-        
-          
-            <a href="mailto:test@test.test" target="_blank" class="ml">Email</a>
+            <a href="mailto:danger.zeng@qq.com" target="_blank" class="ml">Email</a>
           
         
       </div>
@@ -203,24 +195,24 @@
 <p><strong>2</strong>.<strong>反转：</strong>控制权交给外部环境管理（Spring框架，IOC容器）</p>
 <p>3.控制反转的重要软件设计思想就是，依赖倒置原则。</p>
 <p>4.什么是依赖倒置原则，假设我们设计一辆汽车，先设计轮子→底盘→车架，最后根据车身设计好整个汽车。这里就出现了一个“依赖”关系：汽车依赖车身，车身依赖底盘，底盘依赖轮子。</p>
-<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled.png" alt="Untitled"></p>
+<p><img src="/Spring%20IOC%20bcc4e16235b2412096f70d09e71ae86a/Untitled.png" alt="Untitled"></p>
 <p>这样设计，可维护性很低。假设我们要把轮子尺寸增大，底盘设计就需要改，车身也需要改，同理汽车设计都需要改。</p>
 <p>5.现在我们换一种思路，我们先设计汽车的大概样子，轮子依赖底盘， 底盘依赖车身， 车身依赖汽车。</p>
-<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%201.png" alt="Untitled"></p>
+<p><img src="/Spring%20IOC%20bcc4e16235b2412096f70d09e71ae86a/Untitled1.png" alt="Untitled"></p>
 <p>6.这就是依赖导致原则，把原本的高层建筑物“倒置”过来。高层并不用管底层是怎么实现的。这样就不会出现前面的“牵一发动全身”的情况。</p>
 <p>7.控制反转就是，依赖倒置原则的一种代码设计思路，具体采用的方法就是所谓的依赖注入</p>
-<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%202.png" alt="Untitled"></p>
+<p><img src="/Spring%20IOC%20bcc4e16235b2412096f70d09e71ae86a/Untitled%202.png" alt="Untitled"></p>
 <p>7.为了理解这几个概念，我们还是用上面汽车的例子。只不过这次换成代码。我们先定义四个Class，车，车身，底盘，轮胎。然后初始化这辆车，最后跑这辆车。代码结构如下：</p>
-<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%203.png" alt="Untitled"></p>
+<p><img src="/Spring%20IOC%20bcc4e16235b2412096f70d09e71ae86a/Untitled%203.png" alt="Untitled"></p>
 <aside>
 💡 从上面代码可以看出，Car→Framework→Bottom→Tire
 
 </aside>
 
 <p>8.把轮胎尺寸改成动态的</p>
-<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%204.png" alt="Untitled"></p>
+<p><img src="/Spring%20IOC%20bcc4e16235b2412096f70d09e71ae86a/Untitled%204.png" alt="Untitled"></p>
 <p>为了让整个程序正常运行，我们需要做以下改动</p>
-<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%205.png" alt="Untitled"></p>
+<p><img src="/Spring%20IOC%20bcc4e16235b2412096f70d09e71ae86a/Untitled%205.png" alt="Untitled"></p>
 <aside>
 💡 由此我们可以看出，我们仅仅修改轮胎的尺寸，修改了整个上面画红色圈的的方法。软件工程中，**这样的设计几乎是不可维护。如果有几千个类的底层，如果每次修改这个类，我们都要修改所依赖的类，维护成本太高。**
 
@@ -228,7 +220,7 @@
 
 <p>9.维护成本这么高，所以我们需要进行控制反转，及上层控制下层，而不是下层控制上层。</p>
 <p><strong>所谓依赖注入就是，就是把底层作为参数传入上层类，实现上层控制下层。</strong></p>
-<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%206.png" alt="Untitled"></p>
+<p><img src="/Spring%20IOC%20bcc4e16235b2412096f70d09e71ae86a/Untitled%206.png" alt="Untitled"></p>
 <p>什么是<strong>控制反转容器(IoC Container)<strong>呢？其实上面的例子中，对车类进行</strong>初始化</strong>的那段代码发生的地方，就是控制反转容器。</p>
 <p><img src="https://picx.zhimg.com/80/v2-c845802f9187953ed576e0555f76da42_720w.webp?source=1940ef5c" alt="https://picx.zhimg.com/80/v2-c845802f9187953ed576e0555f76da42_720w.webp?source=1940ef5c"></p>
 <aside>
@@ -237,12 +229,12 @@
 </aside>
 
 <p>10.IOC创建时我们不需要了解创建的细节是什么。下面这是我们自己手动创建的依赖注入的初始化代码。</p>
-<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%207.png" alt="Untitled"></p>
+<p><img src="/Spring%20IOC%20bcc4e16235b2412096f70d09e71ae86a/Untitled%207.png" alt="Untitled"></p>
 <p>这个过程中，我们需要了解整个Car&#x2F;Framework&#x2F;Bottom&#x2F;Tire类构造函数是怎么定义的，才能一步一步new&#x2F;注入。</p>
 <p>而IOC是反过来的，先从最上层开始向下找依赖关系，到达底层之后再往上一步一步new.</p>
-<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%208.png" alt="Untitled"></p>
+<p><img src="/Spring%20IOC%20bcc4e16235b2412096f70d09e71ae86a/Untitled%208.png" alt="Untitled"></p>
 <p>这里IoC Container可以直接隐藏具体的创建实例的细节，在我们来看它就像一个工厂：</p>
-<p><img src="Spring IOC bcc4e16235b2412096f70d09e71ae86a/Untitled%209.png" alt="Untitled"></p>
+<p><img src="/Spring%20IOC%20bcc4e16235b2412096f70d09e71ae86a/Untitled%209.png" alt="Untitled"></p>
 <p>这就像工厂的客户，我们只需要了解工厂请求一个Car实例，按照配置自动生成。</p>
 
   <p> — Jan 31, 2024</p>
@@ -251,7 +243,7 @@
 
         </div>
         <div class="row mt-2">
-  <h3>Search</h3>
+  <h3>搜索🔍</h3>
   <div><input id="search-text" title="search" class="search-text" type="text" placeholder="search......"></div>
   <div style="margin-top: 1.5rem;">
     <ul id="result"></ul>
