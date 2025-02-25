@@ -11,38 +11,34 @@
   <meta charset="utf-8">
 
   
-  <title>All Posts - John Doe</title>
+  <title>第二周</title>
   
-  <link rel="canonical" href="http://example.com/archives/2024/">
+  <link rel="canonical" href="http://example.com/2024/10/01/%E7%AC%AC%E4%BA%8C%E5%91%A8%201a5338e53ba880e190ddda94d3f5b5a7/">
   
-  <meta name="description" content="">
+  <meta name="description" content="四、多变量线性回归(Linear Regression with Multiple Variables)4.1 多维特征目前为止，我们探讨了单变量/特征的回归模型，现在我们对房价模型增加更多的特征，例如房间数楼层等，构成一个含有多个变量的模型，模型中的特征为  \left( {x_{1}},{x_{">
   
   
   <meta name="author" content="John Doe">
   
   
-  <meta property="og:image" content="http://example.com/images/thumbnail.jpg">
-  
   
   <meta property="og:site_name" content="Hexo" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="All Posts - John Doe" />
+  <meta property="og:title" content="第二周" />
   
-  <meta property="og:description" content="">
+  <meta property="og:description" content="四、多变量线性回归(Linear Regression with Multiple Variables)4.1 多维特征目前为止，我们探讨了单变量/特征的回归模型，现在我们对房价模型增加更多的特征，例如房间数楼层等，构成一个含有多个变量的模型，模型中的特征为  \left( {x_{1}},{x_{">
   
-  <meta property="og:url" content="http://example.com/archives/2024/" />
+  <meta property="og:url" content="http://example.com/2024/10/01/%E7%AC%AC%E4%BA%8C%E5%91%A8%201a5338e53ba880e190ddda94d3f5b5a7/" />
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="All Posts - John Doe">
+  <meta name="twitter:title" content="第二周">
   
-  <meta name="twitter:description" content="">
-  
-  
-  
-  <meta name="twitter:image" content="http://example.com/images/thumbnail.jpg">
+  <meta name="twitter:description" content="四、多变量线性回归(Linear Regression with Multiple Variables)4.1 多维特征目前为止，我们探讨了单变量/特征的回归模型，现在我们对房价模型增加更多的特征，例如房间数楼层等，构成一个含有多个变量的模型，模型中的特征为  \left( {x_{1}},{x_{">
   
   
-  <meta name="twitter:url" content="http://example.com/archives/2024/" />
+  
+  
+  <meta name="twitter:url" content="http://example.com/2024/10/01/%E7%AC%AC%E4%BA%8C%E5%91%A8%201a5338e53ba880e190ddda94d3f5b5a7/" />
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -191,49 +187,48 @@
 </div>
 
         <div class="trans">
-          
-<h2>全部 帖子</h2>
+            <!-- <h2>第二周</h2> -->
+
+  <h1 id="四、多变量线性回归-Linear-Regression-with-Multiple-Variables"><a href="#四、多变量线性回归-Linear-Regression-with-Multiple-Variables" class="headerlink" title="四、多变量线性回归(Linear Regression with Multiple Variables)"></a>四、多变量线性回归(Linear Regression with Multiple Variables)</h1><h2 id="4-1-多维特征"><a href="#4-1-多维特征" class="headerlink" title="4.1 多维特征"></a>4.1 多维特征</h2><p>目前为止，我们探讨了单变量/特征的回归模型，现在我们对房价模型增加更多的特征，例如房间数楼层等，构成一个含有多个变量的模型，模型中的特征为</p>
+<script type="math/tex; mode=display">
+\left( {x_{1}},{x_{2}},...,{x_{n}} \right)</script><p><img src="C:\hexo\source\_posts\第二周1a5338e53ba880e190ddda94d3f5b5a7\591785837c95bca369021efa14a8bb1c.png" alt="591785837c95bca369021efa14a8bb1c"></p>
+<p>增添更多特征后，我们引入一系列新的注释：</p>
+<script type="math/tex; mode=display">
+n：代表特征的数量</script><script type="math/tex; mode=display">
+{x^{\left( i \right)}}代表第 i 个训练实例，是特征矩阵中的第i行，是一个向量（vector）。</script><p>比方说，上图的</p>
+<script type="math/tex; mode=display">
+{x}^{(2)}\text{=}\begin{bmatrix} 1416\\ 3\\ 2\\ 40 \end{bmatrix}</script><script type="math/tex; mode=display">
+{x}_{j}^{\left( i \right)}代表特征矩阵中第 i 行的第 j 个特征，也就是第 i个训练实例的第 j 个特征。</script><script type="math/tex; mode=display">
+如上图的x{2}^{\left( 2 \right)}=3,x{3}^{\left( 2 \right)}=2，</script><script type="math/tex; mode=display">
+支持多变量的假设 h 表示为：h_{\theta}\left( x \right)={\theta_{0}}+{\theta_{1}}{x_{1}}+{\theta_{2}}{x_{2}}+...+{\theta_{n}}{x_{n}}，</script><script type="math/tex; mode=display">
+这个公式中有n+1个参数和n个变量，</script><script type="math/tex; mode=display">
+为了使得公式能够简化一些，引入x{0}=1，则公式转化为：h{\theta} \left( x \right)={\theta{0}}{x{0}}+{\theta{1}}{x{1}}+{\theta{2}}{x{2}}+...+{\theta{n}}{x{n}}</script><script type="math/tex; mode=display">
+此时模型中的参数是一个n+1维的向量，任何一个训练实例也都是n+1维的向量，特征矩阵X的维度是 m*(n+1)。 因此公式可以简化为：h_{\theta} \left( x \right)={\theta^{T}}X，其中上标T代表矩阵转置。</script>
+  <p> — Oct 1, 2024</p>
+  
 
 
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Oct 1, 2024</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2024/10/01/%E7%AC%AC%E4%BA%8C%E5%91%A8%201a5338e53ba880e190ddda94d3f5b5a7/" class="">
-            
-              第二周
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <article>
-      <div class="row">
-
-        <div class="three columns left lit">
-          <p class="bottom">Jan 31, 2024</p>
-        </div>
-        <div class="nine columns left mb-3">
-          <a href="/2024/01/31/SpringIOC/" class="">
-            
-              SpringIOC
-            
-          </a>
-        </div>
-      </div>
-    </article>
-
-<div class="pagination-bar">
-  <ul class="pagination">
+  
     
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
-  </ul>
-</div>
 
+  
 
         </div>
         <div class="row mt-2">
